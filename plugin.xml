@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-           id="io.gvox.plugin.phonecalltrap"
-      version="0.1.1">
-    <name>PhoneCallTrap</name>
-    <description>A phone call trap</description>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-calltrap"
+        version="0.1.2-dev">
+    <name>CallTrap</name>
+    <description>A incoming phone call trap</description>
     <license>MIT</license>
     <keywords>phonegap,calendar, phone, call, phone-call</keywords>
 
-
-    <js-module src="www/PhoneCallTrap.js" name="PhoneCallTrap">
-        <clobbers target="window.PhoneCallTrap" />
+    <js-module src="www/calltrap.js" name="calltrap">
+        <clobbers target="cordova.plugins.calltrap" />
     </js-module>
 
     <!-- android -->
     <platform name="android">
-        <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="PhoneCallTrap">
-                <param name="android-package" value="io.gvox.phonecalltrap.PhoneCallTrap" />
+        <config-file target="config.xml" parent="/*">
+            <feature name="CallTrap">
+                <param name="android-package" value="name.ratson.cordova.calltrap.CallTrap" />
             </feature>
         </config-file>
 
@@ -25,6 +25,6 @@
             <uses-permission android:name="android.permission.READ_PHONE_STATE" />
         </config-file>
 
-        <source-file src="src/android/PhoneCallTrap.java" target-dir="src/io/gvox/phonecalltrap" />
-     </platform>
+      <source-file src="src/android/CallTrap.java" target-dir="src/name/ratson/cordova/calltrap" />
+    </platform>
 </plugin>

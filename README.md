@@ -44,3 +44,10 @@ https://github.com/devgeeks/PhoneListener
 ## License
 
 Cordova PhoneCall Trap is released under the [MIT License](http://www.opensource.org/licenses/MIT).
+
+
+## References
+
+http://stackoverflow.com/questions/28337385/cordova-long-running-location-service
+http://www.codeproject.com/Articles/548416/Detecting-incoming-and-outgoing-phone-calls-on-And
+https://github.com/renanoliveira/cordova-phone-call-trap
