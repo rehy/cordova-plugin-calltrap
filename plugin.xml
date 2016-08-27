@@ -10,7 +10,7 @@
     <keywords>phonegap,calendar, phone, call, phone-call</keywords>
 
     <js-module src="www/calltrap.js" name="calltrap">
-        <clobbers target="cordova.plugins.calltrap" />
+        <clobbers target="CallTrap" />
     </js-module>
 
     <!-- android -->
