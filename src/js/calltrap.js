@@ -1,14 +1,13 @@
-const exec = require('cordova/exec')
+import exec from 'cordova/exec'
 
 const CallTrap = {
-  onCall: function(successCallback, errorCallback) {
+  onCall(successCallback, errorCallback) {
     errorCallback = errorCallback || this.errorCallback
     exec(successCallback, errorCallback, 'CallTrap', 'onCall', [])
   },
-
-  errorCallback: function() {
+  errorCallback() {
     console.log("WARNING: CallTrap errorCallback not implemented")
   },
 }
 
-module.exports = CallTrap
+export default CallTrap
