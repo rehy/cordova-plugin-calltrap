@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-calltrap",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Cordova PhoneCall Trap Plugin",
   "scripts": {
     "clean": "rimraf www",
