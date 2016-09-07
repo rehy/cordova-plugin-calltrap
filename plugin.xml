@@ -9,7 +9,7 @@
     <license>MIT</license>
     <keywords>phonegap,calendar, phone, call, phone-call</keywords>
 
-    <js-module src="www/calltrap.js" name="calltrap">
+    <js-module name="CallTrap" src="www/CallTrap.js">
         <clobbers target="CallTrap" />
     </js-module>
 
