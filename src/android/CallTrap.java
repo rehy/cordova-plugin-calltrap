@@ -1,14 +1,14 @@
 package name.ratson.cordova.calltrap;
 
-import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.CallbackContext;
-import org.apache.cordova.PluginResult;
 import android.content.Context;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 
-import org.json.JSONException;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 
@@ -51,23 +51,23 @@ class CallStateListener extends PhoneStateListener {
 
         switch (state) {
             case TelephonyManager.CALL_STATE_IDLE:
-            msg = "IDLE";
-            break;
+                msg = "IDLE";
+                break;
 
             case TelephonyManager.CALL_STATE_OFFHOOK:
-            msg = "OFFHOOK";
-            break;
+                msg = "OFFHOOK";
+                break;
 
             case TelephonyManager.CALL_STATE_RINGING:
-            msg = "RINGING";
-            break;
+                msg = "RINGING";
+                break;
         }
 
         JSONObject jsonObj = new JSONObject();
 
         try {
-            jsonObj.put("state",msg);
-            jsonObj.put("number",incomingNumber);
+            jsonObj.put("state", msg);
+            jsonObj.put("number", incomingNumber);
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
@@ -79,4 +79,3 @@ class CallStateListener extends PhoneStateListener {
         callbackContext.sendPluginResult(result);
     }
 }
-// Cordova Android Reference: https://github.com/apache/cordova-android/blob/master/framework/src/org/apache/cordova/PluginResult.java
