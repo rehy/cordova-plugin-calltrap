@@ -13,13 +13,15 @@ cordova plugin add cordova-plugin-calltrap --save
 
 ## Quick Example
 
+Register callback after `deviceready`
+
 ```js
-CallTrap.onCall((state) => {
+CallTrap.onCall(({state, number}) => {
   console.log(`CHANGE STATE: ${state}`)
 
   switch (state) {
     case CallTrap.STATE.RINGING:
-      console.log('Phone is ringing')
+      console.log('Phone is ringing', number)
       break
     case CallTrap.STATE.OFFHOOK:
       console.log('Phone is off-hook')
@@ -30,7 +32,6 @@ CallTrap.onCall((state) => {
   }
 })
 ```
-
 
 ## Supported platforms
 
