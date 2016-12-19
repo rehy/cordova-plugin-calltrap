@@ -33,6 +33,9 @@ CallTrap.onCall(({state, number}) => {
 })
 ```
 
+The above code is written in ES6, you could
+[paste it here](https://babeljs.io/repl/) to get ES5 code.
+
 ## Supported platforms
 
 - Android 2.3.3 or higher
