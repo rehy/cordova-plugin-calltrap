@@ -7,15 +7,15 @@
 -(void)pluginInitialize
 {
     CXCallObserver *callObserverObj = [[CXCallObserver alloc] init];
-    [callObserverObj setDelegate:self queue:nil]
-    self.callObserver = callObserverObj;
+    [callObserverObj setDelegate:self queue:nil];
+    self.callObserverObj = callObserverObj;
     NSLog(@"Initialized CallTrap");
 }
 
 -(void)onReset
 {
     self.callbackId = nil;
-    self.callObserver = nil;
+    self.callObserverObj = nil;
     NSLog(@"onReset of CallTrap called - resetting state");
 }
 
@@ -50,7 +50,7 @@
 
     NSMutableDictionary *resultData = [NSMutableDictionary dictionaryWithCapacity:2];
     [resultData setObject:callstatus forKey:@"status"];
-    [resultData setObject:nil forKey:@"number"];
+    [resultData setObject:@"" forKey:@"number"];
 
     CDVPluginResult *result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:resultData];
     [self.commandDelegate sendPluginResult:result callbackId:self.callbackId];
