@@ -15,8 +15,6 @@
 -(void)onReset
 {
     self.callbackId = nil;
-    self.callObserverObj = nil;
-    NSLog(@"onReset of CallTrap called - resetting state");
 }
 
 - (void)onCall:(CDVInvokedUrlCommand*)command
@@ -47,13 +45,24 @@
         NSLog(@"CXCallState : Connected");
         callstatus = @"OFFHOOK";
     }
+    
 
+    NSString *telephoneNrId = @"";
+    
+    if (call != nil && call.UUID != nil) {
+        telephoneNrId = call.UUID.UUIDString;
+    }
     NSMutableDictionary *resultData = [NSMutableDictionary dictionaryWithCapacity:2];
-    [resultData setObject:callstatus forKey:@"status"];
-    [resultData setObject:@"" forKey:@"number"];
+    [resultData setObject:callstatus forKey:@"state"];
+    [resultData setObject:telephoneNrId forKey:@"number"];
 
     CDVPluginResult *result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:resultData];
-    [self.commandDelegate sendPluginResult:result callbackId:self.callbackId];
+    [result setKeepCallbackAsBool:YES];
+    
+    if (self.callbackId) {
+        [self.commandDelegate sendPluginResult:result callbackId:self.callbackId];
+        NSLog(@"Notify subscriber to CxCallState - state %@ - number %@", callstatus, telephoneNrId);
+    }
 }
 
 @end
