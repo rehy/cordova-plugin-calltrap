@@ -27,4 +27,18 @@
 
       <source-file src="src/android/CallTrap.java" target-dir="src/name/ratson/cordova/calltrap" />
     </platform>
+
+    <!-- iOS -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="CallTrap">
+                <param name="ios-package" value="CallTrap" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+
+        <header-file src="src/ios/CallTrap.h" />
+        <source-file src="src/ios/CallTrap.m" />
+    </platform>
 </plugin>
